@@ -1,20 +1,18 @@
-//获取图片
+//prendere l'immagine
 var pic = $('.banner .pic li');
-//获取小圆点
+//puntini
 var tab = $('.banner .tab li');
-//获取箭头
-var btn = $('.banner .btn li');
-//长度
+//lunghezza
 var len=pic.length;
 var first =0;
-//定时器
+//timer
 var timer;
 
-//初始化
+//iniziallizzazione
 tab.eq(0).addClass('on');
 pic.hide().eq(0).show();
 
-//小圆圈区域
+//funzione per i puntini
 tab.click(function () {
     var x= $(this).index();
     if(x != first){
@@ -22,44 +20,28 @@ tab.click(function () {
     }
 })
 
-//箭头
-btn.click(function () {
-    var x = first;
-    // console.log($(this).index())
-    //右边箭头==1 那就是true
-    //左边箭头==0 那就是false
-    if($(this).index()){
-        x++;
-        if(x>=len) x=0;
-    }else {
-        x--;
-        if(x<0) x=len-1
-    }
-    change(x)  // 只接受0，1，2，3
-})
-
-//变化函数
+//funzione principale per cambiare le foto
 function change(n) {
-    // 把老的样式去掉，给当前点击的元素增加样式
-    tab.eq(first).removeClass('on');//去除on的属性
-    pic.eq(first).fadeOut(1000); // 隐藏上一张的图片
+    // togliere gli attributi vecchi e mettere quelli nuovi
+    tab.eq(first).removeClass('on');//togliere il valore on a l'immagine vecchia
+    pic.eq(first).fadeOut(2000); // fadeout l'immagine precedente
     first = n;
-    tab.eq(first).addClass('on')// 显示当前点击的小圆点
-    pic.eq(first).fadeIn(1000); //显示当前圆点所对应的图片
+    tab.eq(first).addClass('on')// display l'immagine nuova
+    pic.eq(first).fadeIn(2000); //fadein l'immagine nuova
 }
 
+//funzione per far cambiare autonomamente le immagini
 function auto() {
     timer = setInterval(function () {
         var x= first;
         x++;
-        // 取余 0%4  1%4  2%4  3%4
-        x %= len;//为了不让它超出长度
+        x %= len;//per non farlo andare oltre al numero di immagini
         change(x);
-    },3000);
+    },3000);//cambiare immagine ogni 3sec
 }
 auto();
 
-//当你在hover，清除定时器（不要让他轮播）
+//funzione per non far cambiare autonomamente l'immagine quando sono sopra l'immagine
 $('.banner').hover(function () {
     clearInterval(timer);
 },auto);
