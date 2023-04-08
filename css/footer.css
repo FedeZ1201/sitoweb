@@ -1,0 +1,83 @@
+/* START Regole generali */
+body {
+    margin:0;
+    padding: 0;
+    height:100%;
+    font-family: BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #000;
+    background-color: #fff;
+}
+
+ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    padding-inline-start: 10px;
+}
+/* END Regole generali */
+.footer{
+    position: relative;
+    background-color: #4d4d4d;
+    color: #fff;
+    padding-top: 32px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.wrap{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.footer-info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.footer_menu>ul{
+    margin-left: 10px;
+}
+
+.footer_menu>ul>li{
+    display:inline-block;
+}
+
+.footer_menu li+li a {
+    margin-left: 10px;
+    padding-left: 9px;
+    border-left: 1px solid #fff;
+}
+
+.footer_menu>ul>li>a{
+    color:white;
+    text-decoration: none;
+}
+
+.footer_menu a:link,.footer_menu a:visited{
+    color:white;
+    text-decoration: none;
+}
+
+.footer_menu a:hover{
+    text-decoration: underline;
+}
+
+.footer_address{
+    margin-top:16px;
+    margin-left:20px;
+}
+
+.footer_copyright {
+    border-top: 1px solid #fff;
+    padding-top: 4px;
+    margin:0;
+
+}
